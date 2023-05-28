@@ -50,7 +50,7 @@ export const systemSlice = createSlice({
         })
         .addCase(thunk.fulfilled, (state, action) => {
           state.loading = false;
-          state.system_configeration = action.payload;
+          state.system_configeration = action.payload.system;
           state.error = null;
         })
         .addCase(thunk.rejected, (state, action) => {

@@ -7,6 +7,8 @@ import Unordered from "../common/semantic_tags/UnorderedList";
 import { sidebarList } from "../utils/common.utils";
 import { TSideBarList } from "../interface/common.interface";
 import Navbar from "../common/Navbar";
+import Hr from "../common/semantic_tags/Hr";
+import Button from "../common/semantic_tags/Button";
 
 interface WithSidebarProps {
     // Define any additional props needed by the HOC
@@ -25,7 +27,7 @@ function withSideBar<P extends object>(
                             <Span className="font-semibold transition-all duration-200 ease-nav-brand">System Management</Span>
                         </div>
                     </div>
-                    <hr className="h-px mt-0 bg-transparent mx-12 bg-gradient-to-r from-transparent via-black-40 to-transparent" />
+                    <Hr className="mx-12" />
                     <div className="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
                         <Unordered className="flex flex-col pl-0 mb-0">
                             {
@@ -33,7 +35,7 @@ function withSideBar<P extends object>(
                                     return <li className="mt-0.5 w-full" onClick={() => console.log(route)}>
                                         <div className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
                                             <div className="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                                                <i className={Icon}></i>
+                                                <Span className="text-xl"><Icon /></Span>
                                             </div>
                                             <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">{title}</span>
                                         </div>
@@ -53,7 +55,7 @@ function withSideBar<P extends object>(
                                 <div className="transition-all duration-200 ease-nav-brand">
                                     <h6 className="mb-0 text-white">Need help?</h6>
                                     <p className="mt-0 mb-4 font-semibold leading-tight text-xs">Please check our docs</p>
-                                    <button className="inline-block w-full px-8 py-2 mb-0 font-bold text-center text-black uppercase transition-all ease-in bg-white border-0 border-white rounded-lg shadow-soft-md bg-150 leading-pro text-xs hover:shadow-soft-2xl hover:scale-102">Documentation</button>
+                                    <Button clickHandler={() => {}} type="button" className="text-white">Documentation</Button>
                                 </div>
                             </div>
                         </div>

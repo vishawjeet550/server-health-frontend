@@ -1,34 +1,40 @@
+import { GrSystem } from 'react-icons/gr'
+import { GiHealthIncrease, GiProcessor } from 'react-icons/gi'
+import { TbActivity } from 'react-icons/tb';
+import { FaUsers } from 'react-icons/fa';
+import { MdSettingsApplications } from 'react-icons/md';
+
 import { TSideBarList } from "../interface/common.interface";
 
 
 export const sidebarList: TSideBarList[] = [
     {
-        Icon: 'fas fa-house',
+        Icon: GrSystem,
         title: 'System Configeration',
         route: '/'
     },
     {
-        Icon: 'fas fa-tasks-alt',
+        Icon: GiProcessor,
         title: 'Process Management',
         route: '/'
     },
     {
-        Icon: 'fas fa-chart-line',
+        Icon: TbActivity,
         title: 'Activity Monitor',
         route: '/'
     },
     {
-        Icon: 'fas fa-medkit',
+        Icon: GiHealthIncrease,
         title: 'System Health',
         route: '/'
     },
     {
-        Icon: 'fas fa-users-cog',
+        Icon: FaUsers,
         title: 'User group',
         route: '/'
     },
     {
-        Icon: 'fas fa-shapes',
+        Icon: MdSettingsApplications,
         title: 'Applications',
         route: '/'
     }
