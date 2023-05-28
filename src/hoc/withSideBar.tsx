@@ -47,10 +47,10 @@ function withSideBar<P extends object>(
                     <div className="mx-4">
                         <p className="text-gray-800 text-red-500 text-red-600 after:bg-gradient-to-tl after:from-gray-900 after:to-slate-800  after:bg-gradient-to-tl after:from-blue-600 after:to-cyan-400 after:bg-gradient-to-tl after:from-red-500 after:to-yellow-400 after:bg-gradient-to-tl after:from-green-600 after:to-lime-400 after:bg-gradient-to-tl after:from-red-600 after:to-rose-400 after:bg-gradient-to-tl after:from-slate-600 after:to-slate-300 text-lime-500 text-cyan-500 text-slate-400 text-fuchsia-500"></p>
                         <div className="after:opacity-65 after:bg-gradient-to-tl after:from-slate-600 after:to-slate-300 relative flex min-w-0 flex-col items-center break-words rounded-2xl border-0 border-solid border-blue-900 bg-white bg-clip-border shadow-none after:absolute after:top-0 after:bottom-0 after:left-0 after:z-10 after:block after:h-full after:w-full after:rounded-2xl after:content-['']" sidenav-card="">
-                            <div className="mb-7.5 absolute h-full w-full rounded-2xl bg-cover bg-center"></div>
+                            <div className="mb-7.5 absolute h-full bg-[url('https://demos.creative-tim.com/soft-ui-dashboard-tailwind/assets/img/curved-images/white-curved.jpeg')] w-full rounded-2xl bg-cover bg-center"></div>
                             <div className="relative z-20 flex-auto w-full p-4 text-left text-white">
                                 <div className="flex items-center justify-center w-8 h-8 mb-4 text-center bg-white bg-center rounded-lg icon shadow-soft-2xl">
-                                    <TbDiamondFilled className='top-0 z-10 text-transparent ni leading-none ni-diamond text-lg bg-gradient-to-tl from-slate-600 to-slate-300 bg-clip-text opacity-80' />
+                                    <TbDiamondFilled className='top-0 z-10 opacity-40 ni leading-none ni-diamond text-lg bg-gradient-to-tl from-slate-600 to-slate-300 bg-clip-text opacity-80' />
                                 </div>
                                 <div className="transition-all duration-200 ease-nav-brand">
                                     <h6 className="mb-0 text-white">Need help?</h6>

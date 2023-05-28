@@ -1,6 +1,6 @@
 import { MdOutlineNetworkCheck } from "react-icons/md";
-import Heading6 from "../../common/semantic_tags/Heading6";
-import Hr from "../../common/semantic_tags/Hr";
+import Heading6 from "../common/semantic_tags/Heading6";
+import Hr from "../common/semantic_tags/Hr";
 
 type IListing = {
     list: Array<string>;

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import configeration from './configeration';
+import configuration from './configuration';
 
 const rootReducer = combineReducers({
-    system: configeration
+    system: configuration
 });
 
 export default rootReducer;

@@ -10,7 +10,7 @@ import { TSideBarList } from "../interface/common.interface";
 export const sidebarList: TSideBarList[] = [
     {
         Icon: GrSystem,
-        title: 'System Configeration',
+        title: 'System configuration',
         route: '/'
     },
     {

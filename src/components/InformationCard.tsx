@@ -1,13 +1,13 @@
 import { IconType } from "react-icons";
-import Card from "../../common/Card"
-import Heading5 from "../../common/semantic_tags/Heading5";
-import Heading6 from "../../common/semantic_tags/Heading6";
-import Span from "../../common/semantic_tags/Span";
+import Card from "../common/Card"
+import Heading5 from "../common/semantic_tags/Heading5";
+import Heading6 from "../common/semantic_tags/Heading6";
+import Span from "../common/semantic_tags/Span";
 
 type TInformationCard = {
     heading: string;
     description?: string;
-    value: number | string;
+    value?: number | string;
     Icon: IconType;
     className?: string;
 }
@@ -23,7 +23,7 @@ const InformationCard = ({ heading, description, value, Icon, className }: TInfo
             <div className="flex-auto p-4 pt-0 text-center">
                 <Heading6 className="mb-0 text-center font-semibold">{heading}</Heading6>
                 <Span className="leading-tight text-xs">{description}</Span>
-                <hr className="h-px my-4 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent" />
+                {value && <hr className="h-px my-4 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent" />}
                 <Heading5 className="mb-0 font-bold">{value}</Heading5>
             </div>
         </Card>
