@@ -1,42 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { fetchAppsData, fetchSystemData } from '../../api/configuration/configuration.api';
-import { TApps } from '../../interface/application.interface';
+import { fetchAppsData, fetchProcessData, fetchSystemData } from '../../api/configuration/configuration.api';
+import { ISystemconfiguration, SystemState, TApps } from '../../interface/configuration.interface';
 
-export type ISystemconfiguration = {
-  totalMemory: Record<string, any>;
-  storage: Record<string, any>;
-  cpuModel: string;
-  gpuModel: string[];
-  batteryPercentage?: number;
-  diskDrives: string[];
-  networkInterfaces: string[];
-  version?: string;
-  totalCPUs?: number;
-  processCount?: number;
-  users?: Record<string, any>;
-}
-
-export interface SystemState {
-  loading: boolean;
-  appLoading: boolean;
-  system_configuration?: ISystemconfiguration;
-  apps: TApps[];
-  error: string | null;
-  [key: string]: any;
-}
 
 const asyncThunks = [
   { thunk: fetchSystemData, actionPrefix: 'system', stateKey: 'system_configuration', loadingKey: 'loading' },
-  { thunk: fetchAppsData, actionPrefix: 'apps', stateKey: 'apps', loadingKey: 'appLoading' }
+  { thunk: fetchAppsData, actionPrefix: 'system', stateKey: 'apps', loadingKey: 'appLoading' },
+  { thunk: fetchProcessData, actionPrefix: 'system', stateKey: 'process', loadingKey: 'processLoading' },
 ];
-
 
 const initialState: SystemState = {
   loading: false,
+  processLoading: false,
   appLoading: false,
   system_configuration: undefined,
   apps: [],
+  process: undefined,
   error: null
 }
 

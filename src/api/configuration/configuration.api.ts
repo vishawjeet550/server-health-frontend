@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchApplicationDetails, fetchSystemDetails } from './configuration.service';
+import { fetchApplicationDetails, fetchProcessDetails, fetchSystemDetails } from './configuration.service';
 
 export const fetchSystemData: any = createAsyncThunk('system/fetchSystemData', async () => {
   const systemDetails = await fetchSystemDetails();
@@ -8,6 +8,11 @@ export const fetchSystemData: any = createAsyncThunk('system/fetchSystemData', a
 
 export const fetchAppsData = createAsyncThunk('system/fetchAppsData', async ({ page, limit }: { page: number, limit: number }) => {
   const appDetails = await fetchApplicationDetails(page, limit);
+  return appDetails;
+});
+
+export const fetchProcessData = createAsyncThunk('system/fetchProcessData', async ({ page, limit }: { page: number, limit: number }) => {
+  const appDetails = await fetchProcessDetails(page, limit);
   return appDetails;
 });
 

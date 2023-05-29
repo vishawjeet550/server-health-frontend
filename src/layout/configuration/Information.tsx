@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { GoVersions } from "react-icons/go";
+import { GiProcessor } from "react-icons/gi";
+import { BiRefresh } from "react-icons/bi";
 import { FiHardDrive } from "react-icons/fi";
 import { BsBatteryCharging, BsFillCpuFill, BsGpuCard, BsMemory } from "react-icons/bs";
 
@@ -10,34 +12,28 @@ import InformationCard from "../../components/InformationCard"
 import { RootState } from "../../store";
 import { fetchSystemData } from "../../api/configuration/configuration.api";
 import Paragraph from "../../common/semantic_tags/Paragraph";
-import Heading4 from "../../common/semantic_tags/Heading4";
-import Hr from "../../common/semantic_tags/Hr";
 import { MdNumbers, MdOutlineSettingsInputComponent } from "react-icons/md";
-import { GiProcessor } from "react-icons/gi";
 import { calculateMemoryInGB } from "../../utils/helpers.utils";
+import HeaderSection from "../../components/HeaderSection";
 
 const Information: React.FunctionComponent = () => {
   const dispatch = useDispatch();
   const { loading, system_configuration, error } = useSelector((state: RootState) => state.system);
 
-  useEffect(() => {
-    dispatch(fetchSystemData());
-  }, [dispatch]);
+  const fetchHandler = () => dispatch(fetchSystemData());
 
-  console.log('sdvjbdkjvbsdkvbsd', loading, system_configuration)
+  useEffect(() => {
+    fetchHandler()
+  }, [dispatch]);
 
   if (loading) return <Paragraph className="text-center mt-8">Fetching system configuration details ...</Paragraph>
   if (error) return <Paragraph className="text-red-700 text-center mt-8">Something went wrong !!!</Paragraph>
 
   return (
-    <div className='information-wrapper w-full mb-14'>
-      <section className="mb-8">
-        <aside className="flex gap-2 items-center justify-start">
-          <MdOutlineSettingsInputComponent />
-          <Heading4 className="font-bold pb-1">System Information</Heading4>
-        </aside>
-        <Hr className="mx-0" />
-      </section>
+    <div className='information-wrapper w-full mb-14 min-h-[50vh]'>
+      <HeaderSection Icon={MdOutlineSettingsInputComponent} heading="System Information">
+        <BiRefresh className="cursor-pointer text-2xl" onClick={fetchHandler} />
+      </HeaderSection>
       <section className="grid grid-cols-5 -mx-3 gap-8">
         <InformationCard className="h-[200px]" heading="User"
           description="User details fetched from your current operating system."

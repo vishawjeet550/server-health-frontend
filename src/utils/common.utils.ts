@@ -39,3 +39,34 @@ export const sidebarList: TSideBarList[] = [
         route: '/'
     }
 ]
+
+export const processTableHeader = [
+    {
+        value: "user",
+        header: "USER"
+    },
+    {
+        value: "pid",
+        header: "PID"
+    },
+    {
+        value: "cpu_usage",
+        header: "CPU USAGE"
+    },
+    {
+        value: "mem_usage",
+        header: "MEMORY USAGE"
+    },
+    {
+        value: "status",
+        header: "STATUS"
+    },
+    {
+        value: "total_time",
+        header: "Total Time"
+    },
+    {
+        value: "app_name",
+        header: "APP NAME"
+    }
+]

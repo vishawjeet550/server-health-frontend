@@ -9,3 +9,8 @@ export const fetchApplicationDetails = async (page: number = 1, limit: number = 
     const response = await apiService.get(`/system/apps?page=${page}&pageSize=${limit}`);
     return response.data;
 };
+
+export const fetchProcessDetails = async (page: number = 1, limit: number = 10) => {
+    const response = await apiService.get(`/system/process?page=${page}&pageSize=${limit}`);
+    return response.data;
+};

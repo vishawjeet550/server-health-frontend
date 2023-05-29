@@ -1,6 +1,4 @@
 import { MdOutlineSettingsInputComponent } from "react-icons/md"
-import Heading4 from "../../common/semantic_tags/Heading4"
-import Hr from "../../common/semantic_tags/Hr"
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { useEffect } from "react";
@@ -8,28 +6,28 @@ import { fetchAppsData } from "../../api/configuration/configuration.api";
 import Paragraph from "../../common/semantic_tags/Paragraph";
 import FlexCard from "../../components/FlexCard";
 import { getAppIcon } from "../../utils/helpers.utils";
-import { TApps } from "../../interface/application.interface";
+import { TApps } from "../../interface/configuration.interface";
+import HeaderSection from "../../components/HeaderSection";
+import { BiRefresh } from "react-icons/bi";
 
 const Applications = () => {
     const dispatch = useDispatch();
     const { appLoading, apps, error } = useSelector((state: RootState) => state.system);
 
+    const fetchHandler = () => dispatch(fetchAppsData({ page: 1, limit: 10 }) as any);
+
     useEffect(() => {
-        dispatch(fetchAppsData({ page: 1, limit: 10 }) as any);
+        fetchHandler()
     }, [dispatch]);
 
     if (appLoading) return <Paragraph className="text-center mt-8">Fetching applications details ...</Paragraph>
     if (error) return <Paragraph className="text-red-700 text-center mt-8">Something went wrong !!!</Paragraph>
 
     return (
-        <div className='dashboard-wrapper w-full mb-8'>
-            <section className="mb-8">
-                <aside className="flex gap-2 items-center justify-start">
-                    <MdOutlineSettingsInputComponent />
-                    <Heading4 className="font-bold pb-1">Applications</Heading4>
-                </aside>
-                <Hr className="mx-0" />
-            </section>
+        <div className='dashboard-wrapper w-full mb-8 min-h-[50vh]'>
+            <HeaderSection Icon={MdOutlineSettingsInputComponent} heading="Applications">
+                <BiRefresh className="cursor-pointer text-2xl" onClick={fetchHandler} />
+            </HeaderSection>
             <section className="grid grid-cols-5 gap-4">
                 {
                     (apps || []).map((app: TApps, key: number) => {
