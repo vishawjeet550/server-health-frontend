@@ -70,3 +70,22 @@ export const processTableHeader = [
         header: "APP NAME"
     }
 ]
+
+export const serverHealthTips = [
+    "Optimize code and algorithms to reduce CPU usage.",
+    "Implement efficient data structures and algorithms to minimize memory footprint.",
+    "Regularly monitor disk space utilization and implement disk space management strategies.",
+    "Optimize file I/O operations for better disk performance.",
+    "Implement proper error handling and exception management in applications.",
+    "Keep applications up to date with the latest patches and security fixes.",
+    "Implement caching mechanisms to minimize CPU-intensive operations.",
+    "Profile and optimize memory-intensive operations.",
+    "Monitor and identify processes consuming excessive CPU resources.",
+    "Monitor and analyze heap usage patterns to optimize memory usage.",
+    "Optimize application configurations for better performance.",
+    "Implement garbage collection techniques to reclaim unused memory.",
+    "Regularly monitor and analyze server logs to identify and resolve issues promptly.",
+    "Consider load balancing or scaling strategies to distribute the workload.",
+    "Conduct regular performance testing and optimization of critical application components."
+  ];
+  

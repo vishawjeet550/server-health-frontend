@@ -8,6 +8,7 @@ import { MdOutlineSettingsInputComponent } from "react-icons/md";
 import Table from "../../common/Table";
 import { processTableHeader } from "../../utils/common.utils";
 import { BiRefresh } from "react-icons/bi";
+import LoadingLayer from "../../common/LoadingLayer";
 
 const Process = () => {
     const dispatch = useDispatch();
@@ -18,9 +19,6 @@ const Process = () => {
     useEffect(() => {
         fetchHandler()
     }, [dispatch]);
-
-    if (processLoading) return <Paragraph className="text-center mt-8">Fetching applications details ...</Paragraph>
-    if (error) return <Paragraph className="text-red-700 text-center mt-8">Something went wrong !!!</Paragraph>
 
     const tableColumnWrapper = (key: string, value: any): any => {
         if (key === 'status') return <Paragraph className="text-green-700">{value}</Paragraph>
@@ -33,10 +31,12 @@ const Process = () => {
             <HeaderSection Icon={MdOutlineSettingsInputComponent} heading="Process">
                 <BiRefresh className="cursor-pointer text-2xl" onClick={() => fetchHandler()} />
             </HeaderSection>
-            <section className="flex gap-4">
+            {processLoading && <LoadingLayer className="mt-8" />}
+            {error && <Paragraph className="text-red-700 text-center mt-8">Something went wrong !!!</Paragraph>}
+            {!processLoading && !error && <section className="flex gap-4">
                 <Table className="w-[50%]" heading="User Associated Process" tableColumnWrapper={tableColumnWrapper} headers={processTableHeader}  data={process?.user || []} />
                 <Table className="w-[50%]" heading="Root Process" tableColumnWrapper={tableColumnWrapper} headers={processTableHeader}  data={process?.root || []} />
-            </section>
+            </section>}
         </div>
     )
 }

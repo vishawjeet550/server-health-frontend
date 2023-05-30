@@ -29,6 +29,7 @@ export type ISystemconfiguration = {
     version?: string;
     totalCPUs?: number;
     processCount?: number;
+    os_type?: number;
     users?: Record<string, any>;
   }
   
