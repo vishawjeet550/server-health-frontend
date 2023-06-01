@@ -16,27 +16,27 @@ export const sidebarList: TSideBarList[] = [
     {
         Icon: GiProcessor,
         title: 'Process Management',
-        route: '/'
+        route: '/process'
     },
     {
         Icon: TbActivity,
         title: 'Activity Monitor',
-        route: '/'
+        route: '/activity'
     },
     {
         Icon: GiHealthIncrease,
         title: 'System Health',
-        route: '/'
+        route: '/health'
     },
     {
         Icon: FaUsers,
         title: 'User group',
-        route: '/'
+        route: '/users'
     },
     {
         Icon: MdSettingsApplications,
         title: 'Applications',
-        route: '/'
+        route: '/apps'
     }
 ]
 

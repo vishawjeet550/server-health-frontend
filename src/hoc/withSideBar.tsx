@@ -1,6 +1,6 @@
 import React, { ComponentType } from "react";
-import { FaLaptopMedical } from 'react-icons/fa'
 import { TbDiamondFilled } from 'react-icons/tb'
+import { useNavigate } from "react-router-dom";
 
 import Span from "../common/semantic_tags/Span";
 import Unordered from "../common/semantic_tags/UnorderedList";
@@ -9,31 +9,32 @@ import { TSideBarList } from "../interface/common.interface";
 import Navbar from "../common/Navbar";
 import Hr from "../common/semantic_tags/Hr";
 import Button from "../common/semantic_tags/Button";
+import Logo from "../common/Logo";
 
 interface WithSidebarProps {
-    // Define any additional props needed by the HOC
+    showBanner?: boolean;
 }
 
 function withSideBar<P extends object>(
     WrappedComponent: ComponentType<P>
 ): React.FC<P & WithSidebarProps> {
     const WithSidebar: React.FC<P & WithSidebarProps> = (props) => {
+        const navigate = useNavigate()
+        const activeRoute = (route: string) => {
+            if (route === window.location.pathname) return 'shadow-soft-xl text-sm ease-nav-brand flex items-center whitespace-nowrap rounded-lg bg-white font-semibold text-slate-700 transition-colors'
+            else return ''
+        }
         return (
             <section className="flex gap-4">
                 <aside className="max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent">
-                    <div className="h-19.5 flex items-center gap-2 justify-center">
-                        <FaLaptopMedical className="text-3xl" />
-                        <div className="block px-4 py-6 m-0 text-sm whitespace-nowrap text-slate-700">
-                            <Span className="font-semibold transition-all duration-200 ease-nav-brand">System Management</Span>
-                        </div>
-                    </div>
+                    <Logo />
                     <Hr className="mx-12" />
                     <div className="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
                         <Unordered className="flex flex-col pl-0 mb-0">
                             {
                                 sidebarList.map(({ title, Icon, route }: TSideBarList) => {
-                                    return <li className="mt-0.5 w-full" onClick={() => console.log(route)}>
-                                        <div className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
+                                    return <li className='mt-0.5 w-full cursor-pointer' onClick={() => navigate(route)}>
+                                        <div className={`py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors ${activeRoute(route)}`}>
                                             <div className="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                                                 <Span className="text-xl"><Icon /></Span>
                                             </div>
@@ -64,7 +65,7 @@ function withSideBar<P extends object>(
                     </div>
                 </aside>
                 <div className="w-full component-wrapper ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
-                    <Navbar />
+                    <Navbar color={props.showBanner ? 'white' : 'black'} showBanner={props.showBanner} />
                     <div className="px-10 py-4">
                         <WrappedComponent {...props} />
                     </div>

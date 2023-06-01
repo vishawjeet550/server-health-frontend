@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { fetchAppsData, fetchProcessData, fetchSystemData } from '../../api/configuration/configuration.api';
-import { ISystemconfiguration, SystemState, TApps } from '../../interface/configuration.interface';
+import { ISystemconfiguration, SystemState } from '../../interface/configuration.interface';
 
 
 const asyncThunks = [
