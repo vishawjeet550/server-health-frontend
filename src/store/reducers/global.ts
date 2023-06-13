@@ -11,7 +11,7 @@ const asyncThunks = [
 
 const initialState: GlobalState = {
   loading: false,
-  globalLoader: false,
+  globalLoader: true,
   user: null,
   error: null
 }

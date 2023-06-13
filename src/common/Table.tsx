@@ -36,7 +36,7 @@ const Table: React.FC<TableProps> = ({
         <div className={`relative overflow-x-scroll bg-white sm:rounded-lg ${className}`}>
             <table className="w-full text-sm text-left bg-white text-gray-500">
                 {children}
-                <thead className="text-xs text-gray-700 uppercase bg-gray-700 text-white">
+                <thead className="text-xs text-gray-700 uppercase bg-gray-700 text-white text-left">
                     <tr>
                         {headers.map((header, index) => (
                             <th key={index} className="px-6 py-3">

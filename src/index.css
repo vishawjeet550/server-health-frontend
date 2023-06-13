@@ -115,3 +115,18 @@ code {
 .black-gradient {
   background-image: linear-gradient(to right, rgb(55, 65, 81), rgb(17, 24, 39), rgb(0, 0, 0));
 }
+
+@keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+}
+
+.flickering-cursor::after {
+  content: "";
+  width: 5px;
+  height: 20px;
+  background: #ec7fff;
+  display: inline-block;
+  animation: cursor-blink 1.5s steps(2) infinite;
+}

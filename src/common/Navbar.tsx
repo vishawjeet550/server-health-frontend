@@ -9,7 +9,7 @@ import Span from './semantic_tags/Span'
 
 const Navbar = ({ color, className, showBanner = false }: { color?: string, className?: string; showBanner?: boolean }) => {
     return (
-        <nav className={`min-h-[${showBanner ? '200px': '100px'}] relative flex flex-wrap items-start justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start ${className} text-${color}`} navbar-main="" navbar-scroll="true">
+        <nav className={`h-[${showBanner ? '200px': '100px'}] relative flex flex-wrap items-start justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start ${className} text-${color}`} navbar-main="" navbar-scroll="true">
             <div className="z-[99] flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
                 <Breadcrumb className={`text-${color}`} />
                 <div className="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">

@@ -9,6 +9,8 @@ import Signup from './layout/auth/Signup';
 import { fetchUser } from './api/global/global.api';
 import { RootState } from './store';
 import LoadingLayer from './common/LoadingLayer';
+import { AuthRouter, PrivateRouter } from './common/PrivateRouter';
+import Shell from './layout/shell/Shell';
 
 function App() {
   const { globalLoader } = useSelector((state: RootState) => state.global)
@@ -24,9 +26,11 @@ function App() {
     <div className="m-0 font-sans antialiased font-normal text-base leading-default bg-gray-50 text-slate-500">
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Configuration showBanner={true} />} />
-          <Route path='/process' element={<ProcessManagement />} />
-          <Route path='/sign-in' element={<Signin />} />
+          <Route path='/' element={<PrivateRouter><Configuration showBanner={true} /></PrivateRouter>} />
+          <Route path='/process' element={<PrivateRouter><ProcessManagement /></PrivateRouter>} />
+          <Route path='/shell' element={<PrivateRouter><Shell /></PrivateRouter>} />
+
+          <Route path='/sign-in' element={<AuthRouter><Signin /></AuthRouter>} />
           <Route path='/register' element={<Signup />} />
         </Routes>
       </BrowserRouter>

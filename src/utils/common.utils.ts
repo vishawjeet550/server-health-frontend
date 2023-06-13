@@ -3,6 +3,7 @@ import { GiHealthIncrease, GiProcessor } from 'react-icons/gi'
 import { TbActivity } from 'react-icons/tb';
 import { FaUsers } from 'react-icons/fa';
 import { MdSettingsApplications } from 'react-icons/md';
+import { VscTerminalPowershell } from 'react-icons/vsc';
 
 import { TSideBarList } from "../interface/common.interface";
 
@@ -37,10 +38,19 @@ export const sidebarList: TSideBarList[] = [
         Icon: MdSettingsApplications,
         title: 'Applications',
         route: '/apps'
+    },
+    {
+        Icon: VscTerminalPowershell,
+        title: 'Shell',
+        route: '/shell'
     }
 ]
 
 export const processTableHeader = [
+    {
+        value: "app_name",
+        header: "APP NAME"
+    },
     {
         value: "user",
         header: "USER"
@@ -66,8 +76,8 @@ export const processTableHeader = [
         header: "Total Time"
     },
     {
-        value: "app_name",
-        header: "APP NAME"
+        value: "priority",
+        header: "PRIORITY"
     }
 ]
 
