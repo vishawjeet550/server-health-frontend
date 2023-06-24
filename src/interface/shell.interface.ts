@@ -2,7 +2,8 @@ export type TShell = {
     input: string;
     output: string;
     error: string;
-    currentDir: string;
+    currentDir?: string;
+    executed: boolean;
 }
 
 export interface GlobalState {

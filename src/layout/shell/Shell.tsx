@@ -5,7 +5,7 @@ import Terminal from "./Terminal"
 const Shell = () => {
   return (
     <div className="shell-wrapper">
-        <section className="mt-4">
+        <section className="mt-4 ">
             <Terminal />
         </section>
     </div>

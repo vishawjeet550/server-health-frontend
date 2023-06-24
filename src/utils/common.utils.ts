@@ -43,6 +43,11 @@ export const sidebarList: TSideBarList[] = [
         Icon: VscTerminalPowershell,
         title: 'Shell',
         route: '/shell'
+    },
+    {
+        Icon: VscTerminalPowershell,
+        title: 'Editor',
+        route: '/editor'
     }
 ]
 

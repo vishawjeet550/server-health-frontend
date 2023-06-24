@@ -22,7 +22,20 @@ export const shellSlice = createSlice({
   reducers: {
     addNewLineIntoShell: (state, action: PayloadAction<TShell>) => {
       state.shell.push(action.payload)
-    }
+    },
+    updateHistoryAndDirectory: (state, action: PayloadAction<any>) => {
+      state.history = action.payload.history
+      state.currentDir = action.payload.currentDir
+    },
+    clearShell: (state) => {
+      const newArray = [{ input: '', output: '', executed: false, error: '', currentDir: state.shell[state.shell.length - 1].currentDir }];
+      state.shell = newArray
+    },
+    updateShellOutput: (state, action: PayloadAction<any>) => {
+        console.log('cominnng in state reducer', action.payload)
+        state.shell = action.payload.shell;
+    }   
+    
   },
   extraReducers: (builder) => {
     asyncThunks.forEach(({ thunk, actionPrefix, stateKey, loadingKey }) => {
@@ -33,11 +46,13 @@ export const shellSlice = createSlice({
         })
         .addCase(thunk.fulfilled, (state, action) => {
           state[loadingKey] = false;
+          state.error = null;
           state[stateKey] = action.payload[stateKey];
-          state['currentDir'] = action.payload['currentDir'];
           state['shell'].length > 0 && (state['shell'][state['shell'].length - 1]['output'] = action.payload.cmdOpt)
           state['shell'].length > 0 && (state['shell'][state['shell'].length - 1]['input'] = action.payload.cmd)
-          state.error = null;
+          state['shell'].length > 0 && (state['shell'][state['shell'].length - 1]['currentDir'] = action.payload.prevDir)
+          state['shell'].length > 0 && (state['shell'][state['shell'].length - 1]['executed'] = true)
+          state['shell'].push({ error: '', output: '', input: '', currentDir: action.payload.currentDir, executed: false })
         })
         .addCase(thunk.rejected, (state, action) => {
           state[loadingKey] = false;
@@ -47,6 +62,6 @@ export const shellSlice = createSlice({
   },
 })
 
-export const { addNewLineIntoShell } = shellSlice.actions
+export const { addNewLineIntoShell, clearShell, updateHistoryAndDirectory, updateShellOutput } = shellSlice.actions
 
 export default shellSlice.reducer
