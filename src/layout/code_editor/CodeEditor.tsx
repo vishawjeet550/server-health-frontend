@@ -1,11 +1,12 @@
-import React from 'react'
+import withCodeEditor from '../../hoc/withCodeEditor'
+import withSideBar from '../../hoc/withSideBar'
 
 const CodeEditor = () => {
   return (
     <div>
-        
+        Hello
     </div>
   )
 }
 
-export default CodeEditor
+export default withSideBar(withCodeEditor(CodeEditor))

@@ -64,4 +64,3 @@ export const getAppIcon = (appName: string) => {
       return FaFolderOpen;
   }
 };
-

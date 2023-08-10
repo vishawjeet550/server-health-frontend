@@ -11,6 +11,7 @@ import { RootState } from './store';
 import LoadingLayer from './common/LoadingLayer';
 import { AuthRouter, PrivateRouter } from './common/PrivateRouter';
 import Shell from './layout/shell/Shell';
+import CodeEditor from './layout/code_editor/CodeEditor';
 
 function App() {
   const { globalLoader } = useSelector((state: RootState) => state.global)
@@ -29,6 +30,7 @@ function App() {
           <Route path='/' element={<PrivateRouter><Configuration showBanner={true} /></PrivateRouter>} />
           <Route path='/process' element={<PrivateRouter><ProcessManagement /></PrivateRouter>} />
           <Route path='/shell' element={<PrivateRouter><Shell /></PrivateRouter>} />
+          <Route path='/editor' element={<PrivateRouter><CodeEditor /></PrivateRouter>} />
 
           <Route path='/sign-in' element={<AuthRouter><Signin /></AuthRouter>} />
           <Route path='/register' element={<Signup />} />

@@ -6,6 +6,7 @@ import { MdSettingsApplications } from 'react-icons/md';
 import { VscTerminalPowershell } from 'react-icons/vsc';
 
 import { TSideBarList } from "../interface/common.interface";
+import { AiFillCode } from 'react-icons/ai';
 
 
 export const sidebarList: TSideBarList[] = [
@@ -45,7 +46,7 @@ export const sidebarList: TSideBarList[] = [
         route: '/shell'
     },
     {
-        Icon: VscTerminalPowershell,
+        Icon: AiFillCode,
         title: 'Editor',
         route: '/editor'
     }
