@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
-import configeration from './configeration';
+import configuration from './configuration';
+import global from './global'
+import shell from './shell'
 
 const rootReducer = combineReducers({
-    system: configeration
+    system: configuration,
+    global,
+    shell
 });
 
 export default rootReducer;

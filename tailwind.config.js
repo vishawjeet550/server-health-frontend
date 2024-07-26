@@ -16,6 +16,9 @@ module.exports = {
       padding: {
         '2.7': '0.675rem',
         '2.5': '0.625rem',
+      },
+      animation: {
+        'spin-slow': 'bounce 8s linear infinite'
       }
     },
   },

@@ -3,7 +3,7 @@ export type TSematicTypes = {
     className?: string;
 }
 export type TSideBarList = {
-    Icon: string;
+    Icon: React.ComponentType;
     title: string;
     route: string;
 }

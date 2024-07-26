@@ -1,35 +1,107 @@
+import { GrSystem } from 'react-icons/gr'
+import { GiHealthIncrease, GiProcessor } from 'react-icons/gi'
+import { TbActivity } from 'react-icons/tb';
+import { FaUsers } from 'react-icons/fa';
+import { MdSettingsApplications } from 'react-icons/md';
+import { VscTerminalPowershell } from 'react-icons/vsc';
+
 import { TSideBarList } from "../interface/common.interface";
+import { AiFillCode } from 'react-icons/ai';
 
 
 export const sidebarList: TSideBarList[] = [
     {
-        Icon: 'fas fa-house',
-        title: 'System Configeration',
+        Icon: GrSystem,
+        title: 'System configuration',
         route: '/'
     },
     {
-        Icon: 'fas fa-tasks-alt',
+        Icon: GiProcessor,
         title: 'Process Management',
-        route: '/'
+        route: '/process'
     },
     {
-        Icon: 'fas fa-chart-line',
+        Icon: TbActivity,
         title: 'Activity Monitor',
-        route: '/'
+        route: '/activity'
     },
     {
-        Icon: 'fas fa-medkit',
+        Icon: GiHealthIncrease,
         title: 'System Health',
-        route: '/'
+        route: '/health'
     },
     {
-        Icon: 'fas fa-users-cog',
+        Icon: FaUsers,
         title: 'User group',
-        route: '/'
+        route: '/users'
     },
     {
-        Icon: 'fas fa-shapes',
+        Icon: MdSettingsApplications,
         title: 'Applications',
-        route: '/'
+        route: '/apps'
+    },
+    {
+        Icon: VscTerminalPowershell,
+        title: 'Shell',
+        route: '/shell'
+    },
+    {
+        Icon: AiFillCode,
+        title: 'Editor',
+        route: '/editor'
     }
 ]
+
+export const processTableHeader = [
+    {
+        value: "app_name",
+        header: "APP NAME"
+    },
+    {
+        value: "user",
+        header: "USER"
+    },
+    {
+        value: "pid",
+        header: "PID"
+    },
+    {
+        value: "cpu_usage",
+        header: "CPU USAGE"
+    },
+    {
+        value: "mem_usage",
+        header: "MEMORY USAGE"
+    },
+    {
+        value: "status",
+        header: "STATUS"
+    },
+    {
+        value: "total_time",
+        header: "Total Time"
+    },
+    {
+        value: "priority",
+        header: "PRIORITY"
+    }
+]
+
+export const serverHealthTips = [
+    "Optimize code and algorithms to reduce CPU usage.",
+    "Implement efficient data structures and algorithms to minimize memory footprint.",
+    "Regularly monitor disk space utilization and implement disk space management strategies.",
+    "Optimize file I/O operations for better disk performance.",
+    "Implement proper error handling and exception management in applications.",
+    "Keep applications up to date with the latest patches and security fixes.",
+    "Implement caching mechanisms to minimize CPU-intensive operations.",
+    "Profile and optimize memory-intensive operations.",
+    "Monitor and identify processes consuming excessive CPU resources.",
+    "Monitor and analyze heap usage patterns to optimize memory usage.",
+    "Optimize application configurations for better performance.",
+    "Implement garbage collection techniques to reclaim unused memory.",
+    "Regularly monitor and analyze server logs to identify and resolve issues promptly.",
+    "Consider load balancing or scaling strategies to distribute the workload.",
+    "Conduct regular performance testing and optimization of critical application components."
+  ];
+  
